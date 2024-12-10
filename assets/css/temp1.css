@@ -1,0 +1,289 @@
+:root {
+    --primary-color: #2d3846;
+    --accent-color: #5fd3d0;
+    --text-color: #333;
+    --light-gray: #f0f0f0;
+    --dark-gray: #666;
+    --background-color: #f5f5f5;
+    --header-bg: #e8f7f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: 2rem;
+}
+
+/* Header Section */
+header {
+    background-color: var(--header-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    line-height: 1.8;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Form Section */
+.form-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#resumeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#resumeForm input,
+#resumeForm textarea {
+    padding: 0.5rem;
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#resumeForm button,
+.print-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#resumeForm button:hover,
+.print-btn:hover {
+    background-color: #4ac0bd;
+}
+
+/* Resume Section */
+.resume-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Column Styling */
+.left-column {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+}
+
+.profile-photo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-photo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    object-fit: cover;
+}
+
+.name-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.name-title h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.name-title h2 {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.contact-info {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-item i {
+    color: var(--accent-color);
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section h3 i {
+    color: var(--accent-color);
+}
+
+/* Skills Section */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-tags span {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Education Section */
+.education h4 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.institution {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Languages Section */
+.language-item {
+    margin-bottom: 0.5rem;
+}
+
+/* Interests Section */
+.interest-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.interest-item i {
+    color: var(--accent-color);
+}
+
+/* Right Column Styling */
+.right-column {
+    padding: 2rem;
+    background-color: white;
+}
+
+.right-column .section {
+    margin-bottom: 2rem;
+}
+
+.right-column h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Print Button */
+.print-btn {
+    align-self: flex-end;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .resume-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        padding: 0;
+        background: none;
+    }
+
+    header, .form-container, .print-btn {
+        display: none;
+    }
+
+    .resume-container {
+        box-shadow: none;
+    }
+}
+/* Update or add these CSS rules at the end of temp3.css */
+
+.footer {
+    padding: 1rem 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+.footer-content p span {
+    color: #ffffff;
+}
+
+

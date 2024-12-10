@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/temp3.css">
+</head>
+<body>
+    <div class="logo-container">
+        <img src="assets/images/curriculum-vitae.png" alt="CV Logo" class="cv-logo">
+        <h1 class="build-resume-text">Build Resume</h1>
+    </div>
+    <div class="container">
+        
+        <main>
+            <section class="resume-form">
+                <form id="resumeForm">
+                    <div class="form-section">
+                        <h2>Personal Information</h2>
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="text" id="title" placeholder="Job Title" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="tel" id="phone" placeholder="Phone" required>
+                        <input type="text" id="address" placeholder="Full Address" required>
+                        <input type="file" id="photo" accept="image/*">
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Professional Summary</h2>
+                        <textarea id="summary" placeholder="A results-driven professional..." required></textarea>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Professional Experience</h2>
+                        <div id="experienceFields"></div>
+                        <button type="button" id="addExperience">Add More Experience</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Education</h2>
+                        <input type="text" id="degree" placeholder="Degree" required>
+                        <input type="text" id="school" placeholder="School" required>
+                        <input type="text" id="eduDates" placeholder="Graduation Date" required>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Skills</h2>
+                        <div id="skillsFields"></div>
+                        <button type="button" id="addSkill">Add More Skills</button>
+                    </div>
+
+                    <button type="submit">Generate Resume</button>
+                </form>
+            </section>
+
+            <section class="resume-preview">
+                <h2>Resume Preview</h2>
+                <div id="previewContent"></div>
+                <button id="printBtn" style="display: none;">Print Resume</button>
+            </section>
+        </main>
+    </div>
+    <script src="assets/js/temp3.js"></script>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy;Copyright 2024. All Rights Reserved - <span>build.resume</span></p>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+</body>
+</html>

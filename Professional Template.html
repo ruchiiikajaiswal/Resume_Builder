@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2d3846;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-gray: #f0f0f0;
+            --dark-gray: #666;
+            --background-color: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .blue-text {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .form-container, .resume-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        #resumeForm {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        #resumeForm input,
+        #resumeForm textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        #resumeForm button,
+        .print-btn {
+            grid-column: 1 / -1;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #resumeForm button:hover,
+        .print-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .resume-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+        }
+
+        .left-column {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .profile-photo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-color);
+            object-fit: cover;
+        }
+
+        .name-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .name-title h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .name-title h2 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section h3 i {
+            color: var(--accent-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tags span {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .right-column .section h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: none;
+            }
+
+            .logo-container, .form-container, .print-btn {
+                display: none;
+            }
+
+            .resume-container {
+                box-shadow: none;
+            }
+        }
+        .footer {
+    padding: 1rem 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #95a5a6;
+}
+
+.footer-content p span {
+    color: #ffffff;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/curriculum-vitae-DxzVqAfIcaD28ILbqpc3RzGXn2TQph.png" alt="CV Logo" class="logo">
+            <span class="logo-text">build <span class="blue-text">resume</span></span>
+        </div>
+        
+        <div class="form-container">
+            <form id="resumeForm">
+                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="title" placeholder="Job Title" required>
+                <textarea id="summary" placeholder="Professional Summary" required></textarea>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="phone" placeholder="Phone" required>
+                <input type="text" id="location" placeholder="Location" required>
+                <input type="text" id="linkedin" placeholder="LinkedIn URL" required>
+                <input type="file" id="photoInput" accept="image/*" required>
+                <input type="text" id="skills" placeholder="Skills (comma-separated)" required>
+                <input type="text" id="education" placeholder="Education" required>
+                <input type="text" id="languages" placeholder="Languages (comma-separated)" required>
+                <input type="text" id="interests" placeholder="Interests (comma-separated)" required>
+                <button type="submit">Generate Resume</button>
+            </form>
+        </div>
+        
+        <div class="resume-container">
+            <div class="left-column">
+                <div class="profile-photo">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Profile Photo" id="profilePhoto">
+                </div>
+                <div class="name-title">
+                    <h1 id="resumeName"></h1>
+                    <h2 id="resumeTitle"></h2>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span id="contactEmail"></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span id="contactPhone"></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="contactLocation"></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span id="contactLinkedin"></span>
+                    </div>
+                </div>
+                <div class="section skills">
+                    <h3><i class="fas fa-cogs"></i> SKILLS</h3>
+                    <div class="skill-tags" id="skillTags"></div>
+                </div>
+                <div class="section education">
+                    <h3><i class="fas fa-graduation-cap"></i> EDUCATION</h3>
+                    <div id="educationContent"></div>
+                </div>
+                <div class="section languages">
+                    <h3><i class="fas fa-language"></i> LANGUAGES</h3>
+                    <div id="languagesContent"></div>
+                </div>
+                <div class="section interests">
+                    <h3><i class="fas fa-star"></i> INTERESTS</h3>
+                    <div id="interestsContent"></div>
+                </div>
+            </div>
+            <div class="right-column">
+                <div class="section summary">
+                    <h3>PROFESSIONAL SUMMARY</h3>
+                    <p id="resumeSummary"></p>
+                </div>
+                <div class="section experience">
+                    <h3><i class="fas fa-briefcase"></i> WORK EXPERIENCE</h3>
+                    <p>Add your work experience here.</p>
+                </div>
+                <div class="section courses">
+                    <h3><i class="fas fa-certificate"></i> CONFERENCES & COURSES</h3>
+                    <p>Add your conferences and courses here.</p>
+                </div>
+            </div>
+        </div>
+        <button id="printBtn" class="print-btn">Print CV</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('resumeForm');
+            const printBtn = document.getElementById('printBtn');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                updateResume();
+            });
+
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+
+            function updateResume() {
+                document.getElementById('resumeName').textContent = document.getElementById('name').value;
+                document.getElementById('resumeTitle').textContent = document.getElementById('title').value;
+
+                const photoInput = document.getElementById('photoInput');
+                const profilePhoto = document.getElementById('profilePhoto');
+                if (photoInput.files && photoInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        profilePhoto.src = e.target.result;
+                    };
+                    reader.readAsDataURL(photoInput.files[0]);
+                }
+
+                document.getElementById('contactEmail').textContent = document.getElementById('email').value;
+                document.getElementById('contactPhone').textContent = document.getElementById('phone').value;
+                document.getElementById('contactLocation').textContent = document.getElementById('location').value;
+                document.getElementById('contactLinkedin').textContent = document.getElementById('linkedin').value;
+
+                document.getElementById('resumeSummary').textContent = document.getElementById('summary').value;
+
+                const skills = document.getElementById('skills').value.split(',').map(skill => skill.trim());
+                const skillTags = document.getElementById('skillTags');
+                skillTags.innerHTML = '';
+                skills.forEach(skill => {
+                    const span = document.createElement('span');
+                    span.textContent = skill;
+                    skillTags.appendChild(span);
+                });
+
+                const educationContent = document.getElementById('educationContent');
+                educationContent.innerHTML = `<h4>${document.getElementById('education').value}</h4>`;
+
+                const languages = document.getElementById('languages').value.split(',').map(lang => lang.trim());
+                const languagesContent = document.getElementById('languagesContent');
+                languagesContent.innerHTML = '';
+                languages.forEach(lang => {
+                    const div = document.createElement('div');
+                    div.className = 'language-item';
+                    div.textContent = lang;
+                    languagesContent.appendChild(div);
+                });
+
+                const interests = document.getElementById('interests').value.split(',').map(interest => interest.trim());
+                const interestsContent = document.getElementById('interestsContent');
+                interestsContent.innerHTML = '';
+                interests.forEach(interest => {
+                    const div = document.createElement('div');
+                    div.className = 'interest-item';
+                    div.innerHTML = `<i class="fas fa-star"></i><span>${interest}</span>`;
+                    interestsContent.appendChild(div);
+                });
+            }
+        });
+    </script>
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy;Copyright 2024. All Rights Reserved - <span>build.resume</span></p>
+        </div>
+    </div>
+</footer>
+
+
+    
+</body>
+</html>
