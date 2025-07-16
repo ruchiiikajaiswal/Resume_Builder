@@ -1,32 +1,34 @@
-# Resume Builder
+#  Resume Builder
 
-A powerful and customizable web-based Resume Builder that lets users select from multiple professional resume templates and build resumes easily. Built with vanilla HTML, CSS, and JavaScript.
-
----
-## Project Structure
-
-```bash
-Resume_Builder/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
+A user-friendly web application that allows you to build beautiful, professional resumes with ease. This Resume Builder provides multiple layout options, clean styling, and dynamic editing — all within your browser.
 
 ---
-## Features
 
-- **Multiple Resume Templates** (Creative, Traditional, Professional)
-- **Easy editing** of resume content in the browser
-- **Template switching** using JavaScript
-- **Print or Save as PDF** directly from the browser
-- **Fully responsive on mobile and desktop
-- **Clean folder structure for scalability
+##  Features
+
+| ✔ | Feature |
+|----|---------|
+| ✅ | Multiple Resume Templates (Creative, Professional, Traditional) |
+| ✅ | Easy in-browser editing of content |
+| ✅ | JavaScript-powered template switching |
+| ✅ | Save or print as PDF directly from the browser |
+| ✅ | Fully responsive and mobile-friendly design |
+| ✅ | Clean, scalable project structure |
 
 ---
-## Tech Stack
 
-| Tech        | Description                  |
-|-------------|------------------------------|
-| HTML5       | Markup for content structure |
-| CSS3        | Styling and layout templates |
-| JavaScript  | Dynamic template handling    |
+##  Technologies Used
+
+| Component        | Library / Tool |
+|------------------|----------------|
+| Structure        | HTML5          |
+| Styling          | CSS3 (Main + Template-specific CSS) |
+| Interactivity    | JavaScript     |
+| Responsive Layout| Flexbox, Media Queries |
+| Optional         | Bootstrap (if added) |
+
+---
+
+
+
+
